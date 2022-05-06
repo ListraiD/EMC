@@ -148,7 +148,7 @@
                         </div>
                         <div class="row mt-5">
                             <div class="col-3 mx-auto">
-                                <form action="go.php">
+                                <form action="go-company.php">
                                     <button class="button form-control">
                                         Начать поиск
                                     </button>

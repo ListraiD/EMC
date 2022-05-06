@@ -6,8 +6,8 @@ session_start();
 	$query = mysqli_query($con, "SELECT * FROM company WHERE mail='{$_POST['mail']}' AND password ='{$_POST['password']}'");
 	$stroka=$query->fetch_assoc();
 	if (mysqli_num_rows($query)>0) {
-		$_SESSION['id']=$stroka['compid'];
-		header('location: maincomp.php');
+		$_SESSION['id']=$stroka['id'];
+		header('location: lkk.php');
 	}
 	else{
 		header('location: go-company.php');
