@@ -340,11 +340,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                                         <?php echo $for_stat['data']?>
                                                     </p>
                                                 </div>
-                                                <div class="row">
-                                                    <p class="m-text">
-                                                        <?php echo $for_stat['text']?>
-                                                    </p>
-                                                </div>   
+                                                
                                             </div>
                                         </div>
                                     </div>

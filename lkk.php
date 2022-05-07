@@ -140,8 +140,8 @@ $stroka = $query->fetch_assoc();
 
                                 </h1>
                                 <p class="text-center">
-                                    <a href="main.php">
-                                        <?php echo $stroka['mail']?>
+                                <a href="main.php">
+                                        вернуться назад
 
                                     </a>
                                 </p>
