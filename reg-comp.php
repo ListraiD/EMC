@@ -263,7 +263,7 @@
                                             <div class="row">
                                                 <div class="mb-4 col-10 mx-auto">
                                                     <input type="" name="inn" class="form-control w-100 man"
-                                                        placeholder="инн">
+                                                        placeholder="контакты">
                                                 </div>
                                             </div>
 

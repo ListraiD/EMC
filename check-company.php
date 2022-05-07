@@ -7,7 +7,7 @@ session_start();
 	$stroka=$query->fetch_assoc();
 	if (mysqli_num_rows($query)>0) {
 		$_SESSION['id']=$stroka['id'];
-		header('location: lkk.php');
+		header('location: main.php');
 	}
 	else{
 		header('location: go-company.php');

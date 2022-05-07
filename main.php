@@ -47,12 +47,13 @@ $company_stroka = $stat_query->fetch_assoc();
     <style>
         .bg-image {
             background-image: url(img/bgindex.svg);
-
-
         }
 
         .bg-image2 {
-            background:#FFFFFF;
+            background-image: url(img/bgindex2.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 90% 100%;
 
 
         }
@@ -220,37 +221,17 @@ $company_stroka = $stat_query->fetch_assoc();
 
 <body>
     <div class="col">
-        <div class="row example-classname">
-            <div class="col bg-image d-flex" style="height:100vh;">
-                <div class="row my-auto" style="width:100vw;">
-                    <div class="col-7 mx-auto">
-                        <div class="row">
-                            <img src="img/logotip.svg" class="mx-auto">
-                        </div>
-                        <div class="row text-align-center">
-                            <p class="slogan mx-auto mt-3">
-                                Портал экосистемы развития детей и молодежи Якутии
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- scroll -->
         <div class="row">
-            <div class="scene"><img src="img/scroll.svg" style="height:65vh;"></div>
-        </div>
-        <!-- scroll -->
-        <div class="row example-classname">
             <div class="col-10 mx-auto pt-2 pb-2">
                 <div class="row border-bottom">
                     <div class="col-2 mr-auto">
                         <img class="w-100" src="img/text-logo.svg" alt="">
                     </div>
-                    
-
-                    
+                    <div class="col-2 ml-auto ">
+                        <a href="lkk.php">
+                            Личный кабинет
+                        </a>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-4">
@@ -270,7 +251,11 @@ $company_stroka = $stat_query->fetch_assoc();
                                     Статьи
                                 </button>
                             </form>
-                            
+                            <form class="ml-2" action="index.php">
+                                <button class="btn-dis form-control">
+                                    Обявления
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -322,12 +307,13 @@ $company_stroka = $stat_query->fetch_assoc();
                                             <div class="col-12 pb-4 pt-4 pr-5 pl-5">
                                                 <div class="row">
                                                     <div class="col-6">
-                                                        <img class="w-100" src="<?php echo $company_stroka['img']?>" alt="">
+                                                        <img class="w-100" src="<?php echo $company_stroka['img']?>"
+                                                            alt="">
                                                     </div>
                                                     <div class="col-6">
                                                         <h4><?php echo $company_stroka['name']?></h4>
                                                     </div>
-                                                    
+
                                                 </div>
                                                 <div class="row">
                                                     <h4>
@@ -343,9 +329,19 @@ $company_stroka = $stat_query->fetch_assoc();
                                                     <p class="m-text">
                                                         <?php echo $for_stat['text']?>
                                                     </p>
-                                                </div>   
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3 ml-auto">
+                                                        <a hreaf="stat.php" class="m-text">
+                                                            Подробнее
+                                                        </a>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
+
+
                                     </div>
                                     <?php } ?>
                                 </div>
@@ -378,42 +374,7 @@ $company_stroka = $stat_query->fetch_assoc();
 
             </div>
         </div>
-        <!-- scroll -->
-        <div class="row">
-            <div class="scene"><img src="img/scroll.svg" style="height:100vh;"></div>
-        </div>
-        <!-- scroll -->
 
-        <div class="row example-classname">
-            <div class="col bg-image2" style="height:100vh;">
-                <div class="row " style="width: 100vw;">
-                    <div class="col-10 mx-auto" style="margin-top:20vh;">
-                        <div class="row ">
-                            <div class="mx-auto">
-                                <img src="img/card1.svg" alt="">
-                            </div>
-                            <div class="mx-auto ">
-                                <img src="img/card2.svg" alt="">
-                            </div>
-                            <div class="mx-auto ">
-                                <img src="img/card3.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col-3 mx-auto">
-                                <form action="go-company.php">
-                                    <button class="button form-control">
-                                        Начать поиск
-                                    </button>
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -434,13 +395,7 @@ $company_stroka = $stat_query->fetch_assoc();
     <script src="script/jquery-2.2.1.min.js"></script>
     </script>
     <script src="script/jquery.scrollify.js"></script>
-    <script>
-        $.scrollify({
-            section: ".example-classname",
-            scrollbars: false,
-            scrollSpeed: 1000,
-        })
-    </script>
+    
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
