@@ -37,7 +37,7 @@ $stroka = $query->fetch_assoc();
         }
 
         .bg-color1 {
-            background: #10B981;
+            background: #70C9A3;
         }
 
         h1 {
@@ -99,21 +99,46 @@ $stroka = $query->fetch_assoc();
 
             color: #1B1B1B;
         }
+
         .btn-con:hover {
             background: rgba(255, 255, 255, 0.2);
 
         }
+
+        .btn-act {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background: #70C9A3;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 20px;
+            /* identical to box height, or 100% */
+
+            text-align: center;
+
+            color: #FFFFFF;
+
+
+        }
+
         .text-blue {
             font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 33px;
-text-decoration-line: underline;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 33px;
+            text-decoration-line: underline;
 
-/* Blue */
+            /* Blue */
 
-color: #72C3DD;
+            color: #72C3DD;
         }
     </style>
 </head>
@@ -140,7 +165,7 @@ color: #72C3DD;
 
                                 </h1>
                                 <p class="text-center">
-                                    <a href="<?php echo $stroka['mail']?>">
+                                    <a href="">
                                         <?php echo $stroka['mail']?>
 
                                     </a>
@@ -237,48 +262,74 @@ color: #72C3DD;
                 </div>
 
             </div>
+
+
+
             <div class="col vh pt-5 pb-5">
                 <div class="row">
                     <div class="col-10 mx-auto">
-                        <div class="row">
-                            <div class="col-12 mt-5">
-                                <h2>
-                                    <?php echo $stroka['name']?>
-                                    <a class="text-blue" href="update.php">Редактировать</a>
-                                </h2>
-                                <a class="txt-black" href="<?php echo $stroka['mail']?>">
-                                    <?php echo $stroka['mail']?>
-                                </a>
-                                <p class="txt-black">
-                                    <?php echo $stroka['inn']?>
-                                </p>
-                            </div>
-                            <div class="col-12 mt-5">
-                                <h3> Адрес:
-                                    <p class="txt-black">
-                                        <?php echo $stroka['adress']?>
-                                    </p>
-                                </h3>
-                                <h3> О компании:
-                                    <p class="txt-black">
-                                        <?php echo $stroka['text']?>
-                                    </p>
-                                </h3>
-                                <h3> Сайт:
-                                    <a class="txt-black" href="<?php echo $stroka['link']?>">
-                                        <?php echo $stroka['link']?>
+                        <form action="update2.php" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-12 ">
+                                    <h2>Измените название:
+                                        <textarea class="form-control" value=""
+                                            name="name"><?php echo $stroka['name']?></textarea>
+
+                                    </h2>
+                                    <a class="txt-black" href="">
+                                        Измените почту:
+                                        <textarea class="form-control" value=""
+                                            name="mail"><?php echo $stroka['mail']?></textarea>
                                     </a>
+                                    <p class="txt-black">
+                                        Измените контакты:
 
-                                </h3>
+                                        <textarea class="form-control" value=""
+                                            name="inn"><?php echo $stroka['inn']?></textarea>
+                                    </p>
+                                </div>
+                                <div class="col-12 ">
+                                    <h3> Измените Адрес:
+                                        <p class="txt-black">
 
+                                            <textarea class="form-control" value=""
+                                                name="adress"><?php echo $stroka['adress']?></textarea>
+                                        </p>
+                                    </h3>
+                                    <h3> Измените описание:
+                                        <p class="txt-black">
+                                            <textarea class="form-control" value=""
+                                                name="text"><?php echo $stroka['text']?></textarea>
+                                        </p>
+                                    </h3>
+                                    <h3> Измените сыллку на сайт:
+                                        <a class="txt-black" href="<?php echo $stroka['link']?>">
 
+                                            <textarea class="form-control" value=""
+                                                name="link"><?php echo $stroka['link']?></textarea>
+                                        </a>
+
+                                    </h3>
+                                    <h3>
+
+                                    </h3>
+                                    <p class="txt-black">
+                                        Измените фотографию:
+                                        <input placeholder="Выбрать файл" class="mt-3" type="file" name="file">
+
+                                    </p>
+                                    <button class="btn-act">
+                                        Редактировать
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
+
             <p class="text-right mt-0" style=>
-                <img class="" src="img/footer.svg"alt="" style="height: 100vh;">
+                <img class="" src="img/footer.svg" alt="" style="height: 100vh;">
             </p>
 
         </div>
