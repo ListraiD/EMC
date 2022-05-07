@@ -165,7 +165,7 @@ $stroka = $query->fetch_assoc();
 
                                 </h1>
                                 <p class="text-center">
-                                    <a href="">
+                                    <a href="main.php">
                                         <?php echo $stroka['mail']?>
 
                                     </a>
@@ -202,7 +202,7 @@ $stroka = $query->fetch_assoc();
                                             </p>
 
                                             <a hreaf="lkk.php" class="">
-                                                Ваши публикации
+                                                Ваши профиль
                                             </a>
                                         </div>
 
@@ -222,7 +222,7 @@ $stroka = $query->fetch_assoc();
                                             </p>
 
                                             <a hreaf="lkk.php" class="">
-                                                Ваши коллабарации
+                                                Ваши новости
                                             </a>
                                         </div>
 

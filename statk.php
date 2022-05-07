@@ -40,6 +40,11 @@ $stroka = $query->fetch_assoc();
             background: #10B981;
         }
 
+        .bg-color3 {
+            background: #7DD3FC;
+
+        }
+
         h1 {
             font-family: 'Exo';
             font-style: normal;
@@ -99,9 +104,12 @@ $stroka = $query->fetch_assoc();
 
             color: #1B1B1B;
         }
-        .btn-con:hover{
+
+        .btn-con:hover {
             background: rgba(255, 255, 255, 0.2);
-        }   
+
+        }
+
         .text-blue {
             font-family: 'Manrope';
             font-style: normal;
@@ -114,6 +122,34 @@ $stroka = $query->fetch_assoc();
 
             color: #72C3DD;
         }
+
+        .ready {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background: #70C9A3;
+            border-radius: 15px;
+        }
+
+        input {
+
+            /* Neutral/300 */
+            box-sizing: border-box;
+            /* Input/Default */
+
+            box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+            height: 80px !important;
+            font-weight: 400 !important;
+            font-size: 18px !important;
+            line-height: 20px !important;
+            color: #6F6C90 !important;
+            background: #FFFFFF;
+            border: 1px solid #EFF0F7;
+            /* Input/Default */
+            border-radius: 15px !important;
+        }
     </style>
 </head>
 
@@ -122,7 +158,6 @@ $stroka = $query->fetch_assoc();
         <div class="row pr-0 pl-0">
             <div class="col-3 vh bg-color1 pt-5 pb-5 pr-4 pl-4">
                 <div class="row ">
-
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12">
@@ -140,7 +175,7 @@ $stroka = $query->fetch_assoc();
 
                                 </h1>
                                 <p class="text-center">
-                                    <a href="main.php">
+                                    <a href="<?php echo $stroka['mail']?>">
                                         <?php echo $stroka['mail']?>
 
                                     </a>
@@ -171,7 +206,7 @@ $stroka = $query->fetch_assoc();
                                 </div>
                             </div>
                         </form>
-                        <form action="public.php">
+                        <form action="public2.php">
                             <div class="row mt-5 uk-animation-toggle btn-con">
                                 <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
                                     <div class="row">
@@ -243,35 +278,6 @@ $stroka = $query->fetch_assoc();
                                 </div>
                             </div>
                         </form>
-                        <form action="main.php">
-                            <div class="row mt-5 uk-animation-toggle btn-con">
-                                <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
-                                    <div class="row">
-                                        <div class="col-10 mx-auto ">
-                                            <div class="row ">
-                                                <p class="text-center">
-                                                    <img src="img/Copy.svg" alt="">
-                                                </p>
-
-                                                <a hreaf="lkk.php" class="">
-                                                    вернуться
-                                                    <button class="col-12"
-                                                        style="position: absolute; left:0px;top:0px; height: 100px; opacity: 0;"></button>
-                                                </a>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </form>
-                        <div class="row mt-2 ">
-                            <div class="col-6 ">
-                                <img src="img/text-logo-white.svg" alt="">
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -279,39 +285,31 @@ $stroka = $query->fetch_assoc();
             </div>
             <div class="col vh pt-5 pb-5">
                 <div class="row">
-                    <div class="col-10 mx-auto">
+                    <div class="col-10 mx-auto mt-5">
                         <div class="row">
-                            <div class="col-12 mt-5">
-                                <h2>
-                                    <?php echo $stroka['name']?>
-                                    <a class="text-blue" href="update.php">Редактировать</a>
-                                </h2>
-                                <a class="txt-black" href="<?php echo $stroka['mail']?>">
-                                    <?php echo $stroka['mail']?>
-                                </a>
-                                <p class="txt-black">
-                                    <?php echo $stroka['inn']?>
-                                </p>
-                            </div>
-                            <div class="col-12 mt-5">
-                                <h3> Адрес:
-                                    <p class="txt-black">
-                                        <?php echo $stroka['adress']?>
-                                    </p>
-                                </h3>
-                                <h3> О компании:
-                                    <p class="txt-black">
-                                        <?php echo $stroka['text']?>
-                                    </p>
-                                </h3>
-                                <h3> Сайт:
-                                    <a class="txt-black" href="<?php echo $stroka['link']?>">
-                                        <?php echo $stroka['link']?>
-                                    </a>
+                            <div class="col-12">
+                                <h2 class="text-center">Пожалуйста заполните статью</h2>
+                                <form action="statk2.php" method="POST" enctype="multipart/form-data">
+                                    <div class="col-12 mt-3">
+                                        <input type="" name="title" class="form-control" placeholder="Ваш заголовок">
+                                    </div>
+                                    
+                                    <div class="col-12 mt-3">
+                                        <textarea name="text" class="form-control"
+                                            placeholder="Текст вашей статьи"></textarea>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <textarea name="author" class="form-control"
+                                            placeholder="автор статьи"></textarea>
+                                    </div>
+                                    
+                                    <div class="col-3 mt-3">
+                                        <button class="ready form-control">
+                                            Готово!
+                                        </button>
+                                    </div>
 
-                                </h3>
-
-
+                                </form>
                             </div>
                         </div>
                     </div>

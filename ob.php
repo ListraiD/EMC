@@ -6,6 +6,10 @@ $news_query = mysqli_query($con, "SELECT * FROM news ");
 $news_stroka = $news_query->fetch_assoc();
 $news_for_query = mysqli_query($con, "SELECT * FROM news ");
 //news
+// ob
+
+$ob_for_query = mysqli_query($con, "SELECT * FROM o ");
+//ob
 
 //stat
 $stat_query = mysqli_query($con, "SELECT * FROM stat ");
@@ -237,7 +241,7 @@ $company_stroka = $stat_query->fetch_assoc();
                     <div class="col-4">
                         <div class="row"> 
                             <form class="ml-2" action="main.php">
-                                <button class="btn-en form-control">
+                                <button class="btn-dis form-control">
                                     Новости
                                 </button>
                             </form>
@@ -247,7 +251,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                 </button>
                             </form>
                             <form class="ml-2" action="ob.php">
-                                <button class="btn-dis form-control">
+                                <button class="btn-en form-control">
                                     Обявления
                                 </button>
                             </form>
@@ -261,12 +265,12 @@ $company_stroka = $stat_query->fetch_assoc();
                                 <div class="row">
                                     <div class="col-2">
                                         <h2>
-                                            НОВОСТИ
+                                            объявления
                                         </h2>
                                     </div>
                                     <div class="col-9 ">
                                         <a class="p-primary" href="http://emc/news.php">
-                                            <?php echo $news_stroka['title']?>
+                                        актуальные по Республике Саха (Якутия)
                                         </a>
                                     </div>
                                     <div class="col-1 pt-4">
@@ -279,20 +283,13 @@ $company_stroka = $stat_query->fetch_assoc();
                                 </div>
                             </div>
                             <div class="col-12 mt-3">
-                                <img src="<?php echo $news_stroka['img']?>" alt="">
-                            </div>
-                            <div class="col-12 mt-3 border-bottom">
-                                <h3>
-                                    СТАТЬИ
-                                </h3>
-                            </div>
                             <div class="col-12 example-classname">
                                 <div class="row">
                                     <?php
-                                        for($i=0;$i<mysqli_num_rows($stat_for_query);$i++){
-                                        $for_stat = $stat_for_query->fetch_assoc();
+                                        for($i=0;$i<mysqli_num_rows($ob_for_query);$i++){
+                                        $for_ob = $ob_for_query->fetch_assoc();
                                         //comp
-                                        $company_query = mysqli_query($con, "SELECT * FROM company WHERE id='{$for_stat['compid']}'");
+                                        $company_query = mysqli_query($con, "SELECT * FROM company WHERE id='{$for_ob['compid']}'");
                                         $company_stroka = $company_query->fetch_assoc();
                                         //comp
                                     ?>
@@ -312,27 +309,16 @@ $company_stroka = $stat_query->fetch_assoc();
                                                 </div>
                                                 <div class="row">
                                                     <h4>
-                                                        <?php echo $for_stat['title']?>
+                                                        <?php echo $for_ob['title']?>
                                                     </h4>
                                                 </div>
                                                 <div class="row">
                                                     <p class="m-text">
-                                                        <?php echo $for_stat['author']?>
+                                                        <?php echo $for_ob['text']?>
                                                     </p>
                                                 </div>
-                                                <div class="row">
-                                                    <p class="m-text">
-                                                        <?php echo $for_stat['text']?>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3 ml-auto">
-                                                        <a hreaf="stat.php" class="m-text">
-                                                            Подробнее
-                                                        </a>
-                                                    </div>
-
-                                                </div>
+                                                
+                                            
                                             </div>
                                         </div>
 
@@ -341,6 +327,9 @@ $company_stroka = $stat_query->fetch_assoc();
                                     <?php } ?>
                                 </div>
                             </div>
+                            </div>
+                            
+                            
 
                         </div>
 

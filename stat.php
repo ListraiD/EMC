@@ -257,30 +257,7 @@ $company_stroka = $stat_query->fetch_assoc();
                 <div class="row mt-5">
                     <div class="col-9 ">
                         <div class="row">
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h2>
-                                            НОВОСТИ
-                                        </h2>
-                                    </div>
-                                    <div class="col-9 ">
-                                        <a class="p-primary" href="http://emc/news.php">
-                                            <?php echo $news_stroka['title']?>
-                                        </a>
-                                    </div>
-                                    <div class="col-1 pt-4">
-                                        <p class="m-text text-center">
-                                            <?php echo $news_stroka['data']?>
-                                        </p>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <img src="<?php echo $news_stroka['img']?>" alt="">
-                            </div>
+                            
                             <div class="col-12 mt-3 border-bottom">
                                 <h3>
                                     СТАТЬИ
@@ -320,11 +297,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                                         <?php echo $for_stat['author']?>
                                                     </p>
                                                 </div>
-                                                <div class="row">
-                                                    <p class="m-text">
-                                                        <?php echo $for_stat['text']?>
-                                                    </p>
-                                                </div>
+                                                
                                                 <div class="row">
                                                     <div class="col-3 ml-auto">
                                                         <a hreaf="stat.php" class="m-text">

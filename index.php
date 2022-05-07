@@ -260,7 +260,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                     Главная
                                 </button>
                             </form>
-                            <form class="ml-2" action="index.php">
+                        <!-- <form class="ml-2" action="index.php">
                                 <button class="btn-dis form-control">
                                     Новости
                                 </button>
@@ -269,7 +269,8 @@ $company_stroka = $stat_query->fetch_assoc();
                                 <button class="btn-dis form-control">
                                     Статьи
                                 </button>
-                            </form>
+                            </form> -->
+                            
                             
                         </div>
                     </div>
@@ -317,7 +318,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                         //comp
                                     ?>
 
-                                    <div class="col-3 border mr-5 mt-2 ">
+                                    <div class="col-3 mr-5 mt-2 ">
                                         <div class="row  ">
                                             <div class="col-12 pb-4 pt-4 pr-5 pl-5">
                                                 <div class="row">

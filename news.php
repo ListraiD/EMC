@@ -4,7 +4,7 @@ include "connect.php";
 // news
 $news_query = mysqli_query($con, "SELECT * FROM news ");
 $news_stroka = $news_query->fetch_assoc();
-$news_for_query = mysqli_query($con, "SELECT * FROM news ");
+$news_for_query = mysqli_query($con, "SELECT * FROM news WHERE compid='{$_SESSION['id']}'");
 //news
 
 //stat
@@ -214,6 +214,28 @@ $company_stroka = $stat_query->fetch_assoc();
             color: #1B1B1B;
 
         }
+
+        .txt-blue {
+            font-family: 'Exo';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 31px;
+            line-height: 41px;
+
+            /* Dark Green */
+
+            color: #31BAAE;
+        }
+
+        .txt-black {
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 44px;
+
+            color: #000000;
+        }
     </style>
 
 </head>
@@ -235,7 +257,7 @@ $company_stroka = $stat_query->fetch_assoc();
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <div class="row"> 
+                        <div class="row">
                             <form class="ml-2" action="main.php">
                                 <button class="btn-en form-control">
                                     Новости
@@ -254,118 +276,27 @@ $company_stroka = $stat_query->fetch_assoc();
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-9 ">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h2>
-                                            НОВОСТИ
-                                        </h2>
-                                    </div>
-                                    <div class="col-9 ">
-                                        <a class="p-primary" href="http://emc/news.php">
-                                            <?php echo $news_stroka['title']?>
-                                        </a>
-                                    </div>
-                                    <div class="col-1 pt-4">
-                                        <p class="m-text text-center">
-                                            <?php echo $news_stroka['data']?>
-                                        </p>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <img src="<?php echo $news_stroka['img']?>" alt="">
-                            </div>
-                            <div class="col-12 mt-3 border-bottom">
-                                <h3>
-                                    СТАТЬИ
-                                </h3>
-                            </div>
-                            <div class="col-12 example-classname">
-                                <div class="row">
-                                    <?php
-                                        for($i=0;$i<mysqli_num_rows($stat_for_query);$i++){
-                                        $for_stat = $stat_for_query->fetch_assoc();
-                                        //comp
-                                        $company_query = mysqli_query($con, "SELECT * FROM company WHERE id='{$for_stat['compid']}'");
-                                        $company_stroka = $company_query->fetch_assoc();
-                                        //comp
-                                    ?>
-
-                                    <div class="col-3 border mr-5 mt-2 ">
-                                        <div class="row  ">
-                                            <div class="col-12 pb-4 pt-4 pr-5 pl-5">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <img class="w-100" src="<?php echo $company_stroka['img']?>"
-                                                            alt="">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <h4><?php echo $company_stroka['name']?></h4>
-                                                    </div>
-
-                                                </div>
-                                                <div class="row">
-                                                    <h4>
-                                                        <?php echo $for_stat['title']?>
-                                                    </h4>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="m-text">
-                                                        <?php echo $for_stat['author']?>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="m-text">
-                                                        <?php echo $for_stat['text']?>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3 ml-auto">
-                                                        <a hreaf="stat.php" class="m-text">
-                                                            Подробнее
-                                                        </a>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-3">
-                        <div class="row pr-5 pl-5">
-                            <div class="col-10 mx-auto border-bottom">
-                                <p class="news-text">
-                                    Новое на сайте
-                                </p>
-                            </div>
-                            <?php
+                <?php
                             for($i=0;$i<mysqli_num_rows($news_for_query);$i++){
                             $for_news = $news_for_query->fetch_assoc();
                             ?>
-                            <div class="col-10 mx-auto border-bottom mt-5">
-                                <p class="news-title">
-                                    <?php echo $for_news['title']?>
-                                </p>
-                            </div>
-                            <?php } ?>
-
+                        <div class="col-12 mx-auto border-bottom">
+                            <h1 class="txt-blue text-center">
+                                <?php echo $for_news['title']?>
+                            </h1>
                         </div>
-                    </div>
-                </div>
+                        <div class="col-10 mx-auto border-bottom">
+                            <h1 class="text-center">
+                                <img src="<?php echo $for_news['img']?>" alt="">
+                            </h1>
+                        </div>
+                        <div class="col-12 mx-auto border-bottom">
+                            <h1 class="txt-black text-center">
+                                <?php echo $for_news['text']?>
+                            </h1>
+                        </div>
+                <?php } ?>
+
 
             </div>
         </div>
@@ -390,7 +321,7 @@ $company_stroka = $stat_query->fetch_assoc();
     <script src="script/jquery-2.2.1.min.js"></script>
     </script>
     <script src="script/jquery.scrollify.js"></script>
-    
+
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

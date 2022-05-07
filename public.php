@@ -1,22 +1,8 @@
 <?php
 session_start();
 include "connect.php";
-// news
-$news_query = mysqli_query($con, "SELECT * FROM news ");
-$news_stroka = $news_query->fetch_assoc();
-$news_for_query = mysqli_query($con, "SELECT * FROM news ");
-//news
-
-//stat
-$stat_query = mysqli_query($con, "SELECT * FROM stat ");
-$stat_stroka = $stat_query->fetch_assoc();
-$stat_for_query = mysqli_query($con, "SELECT * FROM stat ");
-//stat
-//comp
-$company_query = mysqli_query($con, "SELECT * FROM company ");
-$company_stroka = $stat_query->fetch_assoc();
-
-//comp
+$query = mysqli_query($con, "SELECT * FROM company WHERE id='{$_SESSION['id']}'");
+$stroka = $query->fetch_assoc();
 ?>
 <!doctype html>
 <html lang="en">
@@ -146,16 +132,33 @@ $company_stroka = $stat_query->fetch_assoc();
             background: #70C9A3;
             border-radius: 15px;
         }
+        input {
+
+/* Neutral/300 */
+box-sizing: border-box;
+/* Input/Default */
+
+box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+height: 80px !important;
+font-weight: 400 !important;
+font-size: 18px !important;
+line-height: 20px !important;
+color: #6F6C90 !important;
+background: #FFFFFF;
+border: 1px solid #EFF0F7;
+/* Input/Default */
+border-radius: 15px !important;
+}
     </style>
 </head>
 
 <body>
     <div class="col">
         <div class="row pr-0 pl-0">
-            <div class="col-3 vh bg-color1 pt-5 pb-5 pr-4 pl-4 fixed-bottom">
+            <div class="col-3 vh bg-color1 pt-5 pb-5 pr-4 pl-4">
                 <div class="row ">
                     <div class="col-12">
-                        <div class="row">
+                    <div class="row">
                             <div class="col-12">
                                 <p class="text-center">
                                     <img src="<?php echo $stroka['img']?>" alt="">
@@ -171,7 +174,7 @@ $company_stroka = $stat_query->fetch_assoc();
 
                                 </h1>
                                 <p class="text-center">
-                                    <a href="<?php echo $stroka['mail']?>">
+                                    <a href="main.php">
                                         <?php echo $stroka['mail']?>
 
                                     </a>
@@ -226,7 +229,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                 </div>
                             </div>
                         </form>
-                        <form action="public.php">
+                        <form action="o.php">
                             <div class="row mt-5 uk-animation-toggle btn-con">
                                 <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
                                     <div class="row">
@@ -250,7 +253,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                 </div>
                             </div>
                         </form>
-                        <form action="public.php">
+                        <form action="statk.php">
                             <div class="row mt-5 uk-animation-toggle btn-con">
                                 <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
                                     <div class="row">
@@ -261,7 +264,7 @@ $company_stroka = $stat_query->fetch_assoc();
                                                 </p>
 
                                                 <a hreaf="lkk.php" class="">
-                                                    Ваши статьи
+                                                    Ваши cтатьи
                                                     <button class="col-12"
                                                         style="position: absolute; left:0px;top:0px; height: 100px; opacity: 0;"></button>
                                                 </a>
@@ -281,24 +284,26 @@ $company_stroka = $stat_query->fetch_assoc();
             </div>
             <div class="col vh pt-5 pb-5">
                 <div class="row">
-                    <div class="col-9 ml-auto mt-5">
+                    <div class="col-10 mx-auto mt-5">
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="text-center">Пожалуйста, заполните форму</h2>
+                                <h2 class="text-center">Форма заполнения новости</h2>
                                 <form action="public2.php" method="POST" enctype="multipart/form-data">
                                     <div class="col-12 mt-3">
                                         <input type="" name="title" class="form-control" placeholder="Ваш заголовок">
                                     </div>
                                     <div class="col-12 mt-3">
-                                        <input type="" name="data" class="form-control" placeholder="дата поста">
+                                        <input type="" name="data" class="form-control" placeholder="дата новости">
                                     </div>
                                     <div class="col-12 mt-3">
                                         <textarea name="text" class="form-control"
-                                            placeholder="Текст вашего поста"></textarea>
+                                            placeholder="Текст вашей новости"></textarea>
                                     </div>
                                     <div class="col-12 mt-3">
-                                        <input placeholder="Выбрать фотографию" class="mt-3 bg-color3" type="file"
-                                            name="file">
+                                    <p class="txt-black">
+                                        <input placeholder="загрузить фото" class="mt-3" type="file" name="file">
+
+                                    </p>
                                     </div>
                                     <div class="col-3 mt-3">
                                         <button class="ready form-control">
@@ -308,27 +313,13 @@ $company_stroka = $stat_query->fetch_assoc();
 
                                 </form>
                             </div>
-                            <?php
-                            for($i=0;$i<mysqli_num_rows($news_for_query);$i++){
-                            $for_news = $news_for_query->fetch_assoc();
-                            ?>
-                            <div class="col-12 border mt-5">
-                                <h2 class="text-center">Ваши Новости</h2>
-                            </div>
-                            <div class="col-12 border mt-5">
-                                <h3 class="text-center"><?php echo $for_news['title']?></h3>
-                                <h3 class="text-center"><?php echo $for_news['data']?></h3>
-                                <p class="text-center"><img src="<?php echo $for_news['img']?>" alt=""></p>
-                                <p class="text-center txt-black"><?php echo $for_news['text']?></p>
-                            </div>
-                            <?php } ?>
-
-
                         </div>
                     </div>
                 </div>
             </div>
-            
+            <p class="text-right mt-0" style=>
+                <img class="" src="img/footer.svg" alt="" style="height: 100vh;">
+            </p>
 
         </div>
     </div>
