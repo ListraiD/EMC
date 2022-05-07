@@ -8,6 +8,17 @@ $stroka = $query->fetch_assoc();
 <html lang="en">
 
 <head>
+    <!-- шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo&family=Manrope:wght@700&family=Montserrat:wght@800&family=Poppins:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo&family=Manrope:wght@500&family=Montserrat:wght@800&family=Poppins:wght@600&display=swap"
+        rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +27,7 @@ $stroka = $query->fetch_assoc();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/css/uikit.min.css" />
 
 
     <title>личный кабинет</title>
@@ -88,8 +99,10 @@ $stroka = $query->fetch_assoc();
 
             color: #1B1B1B;
         }
+        .btn-con:hover {
+            background: rgba(255, 255, 255, 0.2);
 
-        
+        }
     </style>
 </head>
 
@@ -123,8 +136,8 @@ $stroka = $query->fetch_assoc();
 
                             </div>
                         </div>
-                        <div class="row mt-5 uk-animation-toggle">
-                            <div class="col-12 uk-animation-shake">
+                        <div class="row mt-5 uk-animation-toggle btn-con">
+                            <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
                                 <div class="row">
                                     <div class="col-10 mx-auto ">
                                         <div class="row ">
@@ -142,8 +155,8 @@ $stroka = $query->fetch_assoc();
 
                             </div>
                         </div>
-                        <div class="row mt-5 btn-con">
-                            <div class="col-12">
+                        <div class="row mt-5 uk-animation-toggle btn-con">
+                            <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
                                 <div class="row">
                                     <div class="col-10 mx-auto ">
                                         <div class="row ">
@@ -162,8 +175,8 @@ $stroka = $query->fetch_assoc();
 
                             </div>
                         </div>
-                        <div class="row mt-5 btn-con">
-                            <div class="col-12">
+                        <div class="row mt-5 uk-animation-toggle btn-con">
+                            <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
                                 <div class="row">
                                     <div class="col-10 mx-auto ">
                                         <div class="row ">
@@ -182,6 +195,31 @@ $stroka = $query->fetch_assoc();
 
                             </div>
                         </div>
+                        <div class="row mt-5 uk-animation-toggle btn-con">
+                            <div class="col-12 uk-animation-fade uk-transform-origin-top-center">
+                                <div class="row">
+                                    <div class="col-10 mx-auto ">
+                                        <div class="row ">
+                                            <p class="text-center">
+                                                <img src="img/Copy.svg" alt="">
+                                            </p>
+
+                                            <a hreaf="lkk.php" class="">
+                                                Ваши cтатьи
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row mt-2 ">
+                            <div class="col-6 ">
+                                <img src="img/text-logo-white.svg" alt="">
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -194,6 +232,7 @@ $stroka = $query->fetch_assoc();
                             <div class="col-12 mt-5">
                                 <h2>
                                     <?php echo $stroka['name']?>
+                                    <a href="update.php">Редактировать</a>
                                 </h2>
                                 <a class="txt-black" href="<?php echo $stroka['mail']?>">
                                     <?php echo $stroka['mail']?>
@@ -203,7 +242,7 @@ $stroka = $query->fetch_assoc();
                                 </p>
                             </div>
                             <div class="col-12 mt-5">
-                                <h3> Адресс:
+                                <h3> Адрес:
                                     <p class="txt-black">
                                         <?php echo $stroka['adress']?>
                                     </p>
@@ -214,20 +253,20 @@ $stroka = $query->fetch_assoc();
                                     </p>
                                 </h3>
                                 <h3> Сайт:
-                                <a class="txt-black" href="<?php echo $stroka['link']?>">
-                                    <?php echo $stroka['link']?>
-                                </a>
-                                    
+                                    <a class="txt-black" href="<?php echo $stroka['link']?>">
+                                        <?php echo $stroka['link']?>
+                                    </a>
+
                                 </h3>
-                                
-                                
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="text-right" style="background: red;">
-                <img class="vh" src="img/footer.svg" alt="">
+            <p class="text-right mt-0" style=>
+                <img class="" src="img/footer.svg"alt="" style="height: 100vh;">
             </p>
 
         </div>
@@ -245,8 +284,8 @@ $stroka = $query->fetch_assoc();
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
     </script>
     <!-- UIkit JS -->
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/js/uikit-icons.min.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
